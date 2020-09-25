@@ -1,9 +1,9 @@
-# in lib/docking_station.rb
+# in lib/van.rb
 
 require_relative 'bike'
-require_relative 'van'
+require_relative 'docking_station'
 
-class DockingStation
+class Van
   DEFAULT_CAPACITY = 20
 
   attr_reader :capacity
@@ -13,19 +13,13 @@ class DockingStation
     @bikes = []
   end
 
-  def release_broken_bike
-    fail 'Bike is working' unless @bikes.last.broken?
-    @bikes.pop
-  end
-
   def release_bike
     fail 'No bikes available' if empty?
-    fail 'Bike is broken' if @bikes.last.broken?
     @bikes.pop
   end
 
   def dock(bike)
-    fail 'Docking station full' if full?
+    fail 'Van is full' if full?
     @bikes << bike
   end
 
