@@ -8,4 +8,3 @@ describe Bike do
     expect(subject).to be_broken
   end
 end
-

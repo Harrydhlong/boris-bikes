@@ -18,7 +18,7 @@ class Garage
   end
 
   def repair_bike
-    $broken = false
+    Bike.repair
   end
 
   private
