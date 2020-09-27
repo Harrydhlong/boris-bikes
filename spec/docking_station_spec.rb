@@ -1,4 +1,5 @@
 require 'docking_station'
+require 'support/shared_examples_for_bike_container'
 
 describe DockingStation do
   it { is_expected.to respond_to :release_bike }
@@ -50,5 +51,5 @@ describe DockingStation do
 
   it { is_expected.to respond_to(:dock).with(1).argument }
 
-
+  it_behaves_like BikeContainer
 end

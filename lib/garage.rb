@@ -2,11 +2,10 @@
 
 require_relative 'bike'
 require_relative 'van'
+require_relative 'bike_container'
 
 class Garage
-  def initialize
-    @bikes = []
-  end
+  include BikeContainer
 
   def release_bike
     fail 'No bikes available' if empty?
@@ -14,18 +13,10 @@ class Garage
   end
 
   def dock(bike)
-    @bikes << bike
+    add_bike bike
   end
 
   def repair_bike
     Bike.repair
-  end
-
-  private
-
-  attr_reader :bikes
-
-  def empty?
-    @bikes.empty?
   end
 end
